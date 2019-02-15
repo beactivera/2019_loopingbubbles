@@ -4,55 +4,52 @@ window.addEventListener("DOMContentLoaded", init);
 // Plan
 // - declare global variables
 
-// init function
-// - set number of bubbles
-// - call functions : createBubbles() , colorBubbles()
-
-// createBubbles function
-// - run createBubble 'number' times
-
-// createBubble function
-// - create div
-// - add class .bubble
-// - add to container in html
-
-// colorBubbles
-// - grab each bubble and store in var
-// - assign var to function colorBubble
-// - specify range conditions
-// - add particular colors
-
 const arr = [];
 const bubbleContainer = document.querySelector("#bubbles");
 
+// init function
+
 function init() {
   console.log("init");
+  // - set number of bubbles
   const number = 256;
+  // - call functions : createBubbles() , colorBubbles()
   createBubbles(number);
   colorBubbles();
 }
 
+// createBubbles function
 function createBubbles(number) {
   console.log("createBubbles");
+  // - run createBubble 'number' times
   for (let counter = 0; counter < number; counter++) {
     createBubble();
     console.log("create Bubble" + counter);
   }
 }
 
+// createBubble function
 function createBubble() {
   console.log("creating bubble");
+  // - create div
   let newDiv = document.createElement("div");
+  // - add class .bubble
   newDiv.classList.add("bubble");
+  // - add to container in html
   bubbleContainer.appendChild(newDiv);
+  // - push div to the array
   arr.push(newDiv);
 }
 
+// colorBubbles
 function colorBubbles() {
   console.log("colorBubbles");
+  // - specify range conditions
   for (let counter = 0; counter < 16; counter++) {
+    // - grab each bubble and store in var
     let bubble = arr[counter];
     console.log(bubble);
+    // - assign var to function colorBubble
     colorBubble(bubble, "green");
   }
   for (let counter = 16; counter < 32; counter++) {
@@ -118,5 +115,6 @@ function colorBubbles() {
 }
 
 function colorBubble(bubble, color) {
+  // - add particular colors
   bubble.style.backgroundColor = color;
 }
